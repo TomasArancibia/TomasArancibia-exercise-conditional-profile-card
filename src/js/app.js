@@ -28,19 +28,39 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  let userName = `<h1>${variables.name ? variables.name : "Name"} ${
+    variables.lastName ? variables.lastName : "lastName"
+  }</h1>`;
+  let twitter = `<li><a href="https://twitter.com/${
+    variables.twitter ? variables.twitter : ""
+  }"><i class="fab fa-twitter"></i></a></li>`;
+  let github = `<li><a href="https://github.com/${
+    variables.github ? variables.github : ""
+  }"><i class="fab fa-github"></i></a></li>`;
+  let linkedin = `<li><a href="https://linkedin.com/${
+    variables.linkedin ? variables.linkedin : ""
+  }"><i class="fab fa-linkedin"></i></a></li>`;
+  let instagram = `<li><a href="https://instagram.com/${
+    variables.instagram ? variables.instagram : ""
+  }"><i class="fab fa-instagram"></i></a></li>`;
+  let location = `<h3>${variables.city ? variables.city : "City"}, ${
+    variables.country ? variables.country : "Country"
+  }</h3>`;
+  let job = `<h2>${variables.role ? variables.role : "Job"}</h2>`;
+  let ul = `<ul class="${variables.socialMediaPosition}">`;
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
+          
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          ${userName}
+          ${job}
+          ${location}
+          ${ul}
+            ${twitter}
+            ${github}
+            ${linkedin}
+            ${instagram}
           </ul>
         </div>
     `;
