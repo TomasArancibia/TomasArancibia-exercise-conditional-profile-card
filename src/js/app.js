@@ -29,7 +29,7 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
   let userName = `<h1>${variables.name ? variables.name : "Name"} ${
-    variables.lastName ? variables.lastName : "lastName"
+    variables.lastName ? variables.lastName : "Last Name"
   }</h1>`;
   let twitter = `<li><a href="https://twitter.com/${
     variables.twitter ? variables.twitter : ""
